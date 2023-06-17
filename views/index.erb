@@ -1,27 +1,21 @@
-<h2>Wellcome to Pizza Shop!</h2>
+<h2 class="text-center">Wellcome to Pizza Shop!</h2>
 
 
-<div>
-	<% @products.each do |pizza| %>
+<div class="mid-container">
+	<div class="flexmom-index-main">
+		<% @products.each do |pizza| %>
 
-		<div>
-			<%= pizza.title %>
-		</div>
-		<div>
-			<img src="<%= pizza.path_to_image %>" alt="">
-		</div>
-		<div>
-			<%= pizza.description %>
-		</div>
-		<div>
-			Size: <%= pizza.size %> cm
-		</div>
-		<div>
-			Price: <%= pizza.price %> rub
-		</div>
-		<div>
-			<button class="btn btn-success btn-sm" onclick="addToCart(<%= pizza.id %>)">Add to cart</button>
-		</div>
+			<div class="son-index-main">
+				<div class="text-center pizza-title"><%= pizza.title %></div>
+				<div><img src="<%= pizza.path_to_image %>" alt=""></div>
+				<div><%= pizza.description %></div>
+				<div>Size: <%= pizza.size %> cm</div>
+				<div>Price: <%= pizza.price %> rub</div>
+				<div class="text-center">
+					<button class="button-1 trans" onclick="addToCart(<%= pizza.id %>)">Add to cart</button>
+				</div>
+			</div>
 
-  <% end %>
+		<% end %>
+	</div>
 </div>
