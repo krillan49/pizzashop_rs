@@ -1,3 +1,27 @@
 <h2>Wellcome to Pizza Shop!</h2>
 
 
+<div>
+	<% @products.each do |pizza| %>
+
+		<div>
+			<%= pizza.title %>
+		</div>
+		<div>
+			<img src="<%= pizza.path_to_image %>" alt="">
+		</div>
+		<div>
+			<%= pizza.description %>
+		</div>
+		<div>
+			Size: <%= pizza.size %> cm
+		</div>
+		<div>
+			Price: <%= pizza.price %> rub
+		</div>
+		<div>
+			<button class="btn btn-success btn-sm" onclick="addToCart(<%= pizza.id %>)">Add to cart</button>
+		</div>
+
+  <% end %>
+</div>

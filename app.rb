@@ -9,6 +9,6 @@ end
 
 
 get '/' do
-	# @products = Product.all
+	@products = Product.all
 	erb :index			
 end
