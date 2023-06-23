@@ -1,4 +1,4 @@
-// Счетчик отдельных покупок для корзины
+// Добавление отдельных товаров в корзину
 function addToCart(id) {
     var key = 'product_' + id;
 
@@ -9,6 +9,22 @@ function addToCart(id) {
     updateOrdersInput();
     updateOrdersButton();
 }
+
+// Удаление отдельных товаров из корзины
+function rmFromCart(id) {
+    var key = 'product_' + id;
+
+    var x = window.localStorage.getItem(key);
+    x = x * 1 - 1;
+    if(x < 0) {
+        x = 0;
+    }
+    window.localStorage.setItem(key, x);
+
+    updateOrdersInput();
+    updateOrdersButton();
+}
+
 
 // Функция для того чтобы обратиться к полю в которое мы хотим поместить "product_1=3,product_2=5,product_3=1, ..." чтобы потом отправить этот результат на сервер.
 function updateOrdersInput() {
