@@ -38,6 +38,11 @@ a {text-decoration: none;}
   color: white;
   border: 1px solid rgb(177, 150, 87);
 }
+.button-1:active {
+	background-color: white;
+  color: rgb(113, 50, 31);
+  border: 1px solid rgb(113, 50, 31);
+}
 
 .mid-container {
   /* border: 1px blue solid; */

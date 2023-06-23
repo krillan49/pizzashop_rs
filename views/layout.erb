@@ -8,6 +8,7 @@
 
 	<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">	
   <script src="https://use.fontawesome.com/7599d4c6a9.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 	<link href="/css/styles.css" rel="stylesheet" media="all"> 
 	<script src="/app.js"></script>	
 </head>
@@ -25,9 +26,18 @@
         <a href="/" class="trans" title="Страница с постами">Главная</a>
         <a href="/new" class="trans" title="Написать пост">Тут чето будет</a>
       </div>
+      <!--
       <div id="h1-box3">
         <a class="trans" href="#">Войти</a>
         <a class="trans" href="#">Регистрация</a>
+      </div>
+      -->
+      <div id="h1-box4">
+        <!-- Форма для отправки данных счетчика -->
+        <form action="/cart" method="POST">
+          <input type="hidden" name="orders" id="orders_input">
+          <input type="submit" id="orders_button" class="button-1 trans"> 
+        </form>
       </div>
     </div>
   </header>
