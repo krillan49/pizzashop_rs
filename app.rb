@@ -15,3 +15,23 @@ get '/' do
 	@products = Product.all
 	erb :index			
 end
+
+
+# обработчик кнопки заказа и перехода к подтверждению
+post '/cart' do
+  @c = Client.new
+
+	@order_code = params[:orders] # "product_1=4,product_2=7,product_3=4,"
+	#"product_1=4,product_2=7,product_3=4," => [["1", "4"], ["2", "7"], ["3", "4"]]
+	order_list = params[:orders].split(',').map{|prod| prod.split('=')}.map{|a| [a[0][-1], a[1]]}
+	# => {obj1 => 4, ...} тоесть хэш где ключ сущность а значение число заказов на нее
+	@order_list = order_list.map{|k, v| [Product.find(k.to_i), v.to_i]}.to_h
+	erb :orders
+end
+
+# обработчик подтверждения заказа и занесения в бд
+post '/order' do
+	@c = Client.new params[:client]
+	@c.save
+	erb "<p>Thank you!</p>"
+end
