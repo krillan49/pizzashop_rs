@@ -1,49 +1,49 @@
 <h2 class="text-center">Order list</h2>
 
-<!-- таблица заказов -->
-<table>
-	<thead>
-		<tr>
-	    <th>Название</th><th>Фото</th><th>Размер</th><th>Цена</th><th>Количество</th><th>Итого</th>
-  	</tr>
-	</thead>
-
-	<tbody>
-		<% sum = 0 %>
+<div class="mid-container">
+  <!-- таблица заказов -->
+	<div class="flexmom-index-main">
+    <% sum = 0 %>
 
   	<% @order_list.each do |pizza, count| %>
-  		<tr>
-  	    <td><%= pizza.title %></td>
-  	    <td><img src="<%= pizza.path_to_image %>"></td>
-  	    <td><%= pizza.size %></td>
-  	    <td><%= pizza.price %></td>
-  	    <td><%= count %></td>
-  	    <td><%= pizza.price * count %></td>
-  		</tr>
+  		<div class="son-index-main">
+  	    <div class="text-center pizza-title"><%= pizza.title %></div>
+  	    <div><img src="<%= pizza.path_to_image %>" alt=""></div>
+  	    <div>Size: <%= pizza.size %> cm</div>
+				<div>Price: <%= pizza.price %> rub</div>
+  	    <div>Количество: <%= count %></div>
+  	    <div>Сумма товара: <%= pizza.price * count %></div>
+  		</div>
   		<% sum += pizza.price * count %>
   	<% end %>
 
-  	<tr><td>Общая сумма: <%= sum %></td></tr>
-	</tbody>
-</table>
+	</div>
+  <p class="text-center"><span class="fake-button-2">Общая сумма: <%= sum %></span></p>
 
 
-<h2 class="text-center">Подтвердите заказ</h2>
-<!-- Форма подтверждения заказов -->
-<div>
-	<form action="/order" method="POST">
-  	<label>Ваше имя</label>
-  	<input name="client[name]" type="text" value="<%= @c.name %>">
 
-  	<label>Ваш телефон</label>
-  	<input name="client[phone]" type="text" value="<%= @c.phone %>">
-
-  	<label>Ваш адрес</label>
-  	<input name="client[address]" type="text" value="<%= @c.address %>">
-
-		<!-- Скрытое поле с "product_1=4,product_2=7,product_3=4," -->
+  <h2 class="text-center">Подтвердите заказ</h2>
+  <!-- Форма подтверждения заказов -->
+  <form action="/order" method="POST" id="orders-form">
+    <div>
+      <label>Ваше имя</label><br>
+      <input name="client[name]" type="text" value="<%= @c.name %>">
+    </div>
+    <div>
+      <label>Ваш телефон</label><br>
+      <input name="client[phone]" type="text" value="<%= @c.phone %>">
+    </div>
+    <div>
+      <label>Ваш адрес</label><br>
+      <input name="client[address]" type="text" value="<%= @c.address %>">
+    </div>
+    <!-- Скрытое поле с "product_1=4,product_2=7,product_3=4," -->
     <input name="client[products]" type="hidden" value="<%= @order_code %>">
 
-	 	<button type="submit" class="btn btn-primary">Подтвердить</button>
-	</form>
+    <button type="submit" class="button-1 trans">Подтвердить</button>
+  </form>
+
 </div>
+
+
+

@@ -45,7 +45,7 @@ a {text-decoration: none;}
   border: 1px solid rgb(113, 50, 31);
 }
 
-.button-2 {
+.button-2, .fake-button-2 {
   font-weight: 500;
   border-radius: 5px;
   margin-right: .8rem;
@@ -119,7 +119,7 @@ header a[title="На главную страницу"] {
 
 
 /*=====================================
-index.erb
+index.erb + orders.erb
 =====================================*/
 
 .flexmom-index-main {
@@ -140,4 +140,23 @@ index.erb
 
 .pizza-title {
   font-weight: 500;
+}
+
+
+/*=====================================
+orders.erb
+=====================================*/
+
+/* #orders-form {
+  display: flex;
+  flex-direction: column;
+} */
+
+#orders-form input {
+  margin-bottom: 1rem;
+  outline: none;
+  border: 0;
+  background-color: #eee;
+  font-size: 2rem;
+  max-width: 99.5%;
 }

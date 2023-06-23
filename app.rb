@@ -35,6 +35,9 @@ end
 # =============================================
 post '/order' do
 	@c = Client.new params[:client]
+
+	# Добавить валидацию
+
 	@c.save
 	erb "<p>Thank you!</p>"
 end
