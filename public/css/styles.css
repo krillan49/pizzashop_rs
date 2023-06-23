@@ -26,6 +26,7 @@ a {text-decoration: none;}
 
 .text-center { text-align: center;}
 
+/* Кнопки */
 .button-1 {
   font-size: 1rem;
   padding: 0.5rem;
@@ -42,6 +43,24 @@ a {text-decoration: none;}
 	background-color: white;
   color: rgb(113, 50, 31);
   border: 1px solid rgb(113, 50, 31);
+}
+
+.button-2 {
+  font-weight: 500;
+  border-radius: 5px;
+  margin-right: .8rem;
+  padding: .7rem 1.2rem;
+  background-color: rgb(177, 150, 87);
+  color: rgb(113, 50, 31);
+  border: 1px solid rgb(113, 50, 31);
+}
+.button-2:hover {
+  background-color: rgb(113, 50, 31);
+  color: white;
+}
+.button-2:active {
+	background-color: white;
+  color: rgb(113, 50, 31);
 }
 
 .mid-container {
@@ -89,20 +108,6 @@ header a[title="На главную страницу"] {
   font-weight: 500;
 }
 #h1-box2>a:hover { color: white; }
-
-#h1-box3>a {
-  font-weight: 500;
-  border-radius: 5px;
-  margin-right: .8rem;
-  padding: .7rem 1.2rem;
-  background-color: rgb(177, 150, 87);
-  color: rgb(113, 50, 31);
-  border: 1px solid rgb(113, 50, 31);
-}
-#h1-box3>a:hover {
-  background-color: rgb(113, 50, 31);
-  color: white;
-}
 
 @media (max-width: 1330px) {
   header { padding: 1rem 5%;}

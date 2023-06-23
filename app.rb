@@ -16,8 +16,9 @@ get '/' do
 	erb :index			
 end
 
-
+# =============================================
 # обработчик кнопки заказа и перехода к подтверждению
+# =============================================
 post '/cart' do
   @c = Client.new
 
@@ -29,9 +30,29 @@ post '/cart' do
 	erb :orders
 end
 
+# =============================================
 # обработчик подтверждения заказа и занесения в бд
+# =============================================
 post '/order' do
 	@c = Client.new params[:client]
 	@c.save
 	erb "<p>Thank you!</p>"
+end
+
+# =============================================
+# временные конструкции
+# =============================================
+class Some
+	attr_reader :title, :path_to_image, :size, :price
+	def initialize
+		@title = 'pizza'
+		@path_to_image = '/images/Peperroni.jpg'
+		@size, @price = 20, 200
+	end
+end
+get '/cart' do
+  @c = Client.new
+	@order_code = 'aaaa'
+	@order_list = {Some.new => 1, Some.new => 2}
+	erb :orders
 end
