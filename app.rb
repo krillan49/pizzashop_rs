@@ -48,3 +48,11 @@ post '/order' do
 	@c.save
 	erb :order_plased
 end
+
+# =============================================
+# админская зона для просмотра заказов
+# =============================================
+get '/admin' do
+	@c = Client.order('created_at DESC')
+	erb :admin
+end

@@ -1,0 +1,20 @@
+<h2>Admin page</h2>
+
+<table>
+	<thead>
+		<tr>
+		    <th>Имя</th><th>Телефон</th><th>Адрес</th><th>Заказ</th>
+	  	</tr>
+  	</thead>
+
+  	<tbody>
+		<% @c.each do |client| %>
+			<tr>
+			    <td><%= client.name %></td>
+			    <td><%= client.phone %></td>
+			    <td><%= client.address %></td>
+			    <td><%= client.products %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
