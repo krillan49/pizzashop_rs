@@ -86,5 +86,5 @@ function canselOrder() {
     window.localStorage.clear();
     updateOrdersInput();
     updateOrdersButton();
-    $('#cart').text('Your cart is now empty');
+    $('#cart').text('<h2 class="text-center">Your cart is now empty</h2>');
 }
