@@ -8,6 +8,7 @@ function addToCart(id) {
 
     updateOrdersInput();
     updateOrdersButton();
+    updateOrderCounter(id);
 }
 
 // Удаление отдельных товаров из корзины
@@ -23,8 +24,22 @@ function rmFromCart(id) {
 
     updateOrdersInput();
     updateOrdersButton();
+    updateOrderCounter(id);
 }
 
+// Для счетчика между кнопками + и - для каждого товара
+function updateOrderCounter(id) {
+    var order = 0;
+    for (var i = 0; i < window.localStorage.length; i++){
+        var key = window.localStorage.key(i); // получаем ключ
+        var value = window.localStorage.getItem(key); // получаем значение
+
+        if(key == 'product_' + id) {
+            order = value * 1;
+        }
+    }
+    $('#counter' + id).val(order);    
+}
 
 // Функция для того чтобы обратиться к полю в которое мы хотим поместить "product_1=3,product_2=5,product_3=1, ..." чтобы потом отправить этот результат на сервер.
 function updateOrdersInput() {

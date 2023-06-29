@@ -27,7 +27,7 @@ a {text-decoration: none;}
 .text-center { text-align: center;}
 
 /* Кнопки */
-.button-1 {
+.button-1, .fake-button-1 {
   font-size: 1rem;
   padding: 0.5rem;
   background-color: rgb(177, 150, 87);

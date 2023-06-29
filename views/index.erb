@@ -13,6 +13,11 @@
 				<div>Price: <%= pizza.price %> rub</div>
 				<div class="text-center">
 					<button class="button-1" onclick="rmFromCart(<%= pizza.id %>)">меньше -</button>
+
+					<!-- Счетчик для каждой пиццы -->
+					<input class="fake-button-1" id="counter<%= pizza.id %>" value="0" type="button">
+					<!-- Не обновляется при обновлении страницы, както надо добавить id. Мб перебор всех массивом -->
+
 					<button class="button-1" onclick="addToCart(<%= pizza.id %>)">+ больше</button>				
 				</div>
 			</div>
