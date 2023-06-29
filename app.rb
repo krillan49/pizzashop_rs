@@ -41,7 +41,7 @@ post '/order' do
 	# Добавить валидацию
 
 	@c.save
-	erb "<p>Thank you!</p>"
+	erb :order_plased
 end
 
 

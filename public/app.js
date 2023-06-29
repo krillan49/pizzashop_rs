@@ -65,3 +65,11 @@ function сartGetOrders() {
     }
     return orders; // "product_1=3,product_2=5,product_3=1, ..."
 }
+
+// Для очистки козины на странице подтвержден
+function canselOrder() {
+    window.localStorage.clear();
+    updateOrdersInput();
+    updateOrdersButton();
+    $('#cart').text('Your cart is now empty');
+}

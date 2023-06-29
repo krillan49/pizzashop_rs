@@ -1,6 +1,6 @@
 <h2 class="text-center">Order list</h2>
 
-<div class="mid-container">
+<div class="mid-container" id="cart"> <!-- id для функции canselOrder() -->
   <!-- таблица заказов -->
 	<div class="flexmom-index-main">
     <% sum = 0 %>
@@ -41,6 +41,9 @@
     <input name="client[products]" type="hidden" value="<%= @order_code %>">
 
     <button type="submit" class="button-1 trans">Подтвердить</button>
+
+    <!-- Для очистки козины на странице подтвержден -->
+		<button onclick="canselOrder()" type="button" class="button-1 trans">Cancel</button> 
   </form>
 
 </div>
