@@ -22,12 +22,14 @@ end
 post '/cart' do
   @c = Client.new
 
+  # "product_1=4,product_2=7,product_3=0," Ноль приходдит изза кнопки уменьшения на главной, видимо нужно исправить в функции уменьшения на локалсторедж. Покачто исправляем только в выводе(select{|k, v| v > 0})
+
 	@order_code = params[:orders] # "product_1=4,product_2=7,product_3=4,"
 	#"product_1=4,product_2=7,product_3=4," => [["1", "4"], ["2", "7"], ["3", "4"]]
 	order_list = params[:orders].split(',').map{|prod| prod.split('=')}.map{|a| [a[0][-1], a[1]]}
 	# => {obj1 => 4, ...} тоесть хэш где ключ сущность а значение число заказов на нее
-	@order_list = order_list.map{|k, v| [Product.find(k.to_i), v.to_i]}.to_h
-	erb :orders
+	@order_list = order_list.map{|k, v| [Product.find(k.to_i), v.to_i]}.to_h.select{|k, v| v > 0}
+	erb :cart
 end
 
 # =============================================
@@ -42,8 +44,10 @@ post '/order' do
 	erb "<p>Thank you!</p>"
 end
 
+
+
 # =============================================
-# временные конструкции
+# временные конструкции(отображение страницы /cart по ссылке)
 # =============================================
 class Some
 	attr_reader :title, :path_to_image, :size, :price
@@ -57,5 +61,5 @@ get '/cart' do
   @c = Client.new
 	@order_code = 'aaaa'
 	@order_list = {Some.new => 1, Some.new => 2}
-	erb :orders
+	erb :cart
 end
