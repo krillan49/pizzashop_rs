@@ -29,6 +29,11 @@ post '/cart' do
 	order_list = params[:orders].split(',').map{|prod| prod.split('=')}.map{|a| [a[0][-1], a[1]]}
 	# => {obj1 => 4, ...} тоесть хэш где ключ сущность а значение число заказов на нее
 	@order_list = order_list.map{|k, v| [Product.find(k.to_i), v.to_i]}.to_h.select{|k, v| v > 0}
+
+  if @order_list.size == 0
+		return erb "Cart is empty"
+	end
+
 	erb :cart
 end
 
@@ -42,24 +47,4 @@ post '/order' do
 
 	@c.save
 	erb :order_plased
-end
-
-
-
-# =============================================
-# временные конструкции(отображение страницы /cart по ссылке)
-# =============================================
-class Some
-	attr_reader :title, :path_to_image, :size, :price
-	def initialize
-		@title = 'pizza'
-		@path_to_image = '/images/Peperroni.jpg'
-		@size, @price = 20, 200
-	end
-end
-get '/cart' do
-  @c = Client.new
-	@order_code = 'aaaa'
-	@order_list = {Some.new => 1, Some.new => 2}
-	erb :cart
 end
