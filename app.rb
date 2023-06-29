@@ -31,9 +31,9 @@ post '/cart' do
 
   # "product_1=4,product_2=7,product_3=0," Ноль приходдит изза кнопки уменьшения на главной, видимо нужно исправить в функции уменьшения на локалсторедж. Покачто исправляем только в выводе(select{|k, v| v > 0})
 
-	@order_code = params[:orders] # "product_1=4,product_2=7,product_3=4,"
+	@order_code = params[:orders_code] # "product_1=4,product_2=7,product_3=4,"
 	
-  @order_list = parse_orders_input(params[:orders])
+  @order_list = parse_orders_input(params[:orders_code])
 
   if @order_list.size == 0
 		return erb '<h2 class="text-center">Cart is empty</h2>'

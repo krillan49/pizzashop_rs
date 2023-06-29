@@ -1,20 +1,24 @@
 <h2 class="text-center">Admin page</h2>
 
-<table>
-	<thead>
-		<tr>
-		    <th>Имя</th><th>Телефон</th><th>Адрес</th><th>Заказ</th>
-	  	</tr>
-  	</thead>
+<div class="mid-container">
 
-  	<tbody>
-		<% @c.each do |client| %>
+	<table class="admin-orders-table">
+		<thead>
 			<tr>
-			    <td><%= client.name %></td>
-			    <td><%= client.phone %></td>
-			    <td><%= client.address %></td>
-			    <td><%= client.products %></td>
+				<th>Имя</th><th>Телефон</th><th>Адрес</th><th>Код заказа</th>
 			</tr>
-		<% end %>
-	</tbody>
-</table>
+		</thead>
+
+		<tbody>
+			<% @c.each do |client| %>
+				<tr>
+					<td><span><%= client.name %></span></td>
+					<td><span><%= client.phone %></span></td>
+					<td><span><%= client.address %></span></td>
+					<td><span><%= client.products %></span></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+
+</div>
