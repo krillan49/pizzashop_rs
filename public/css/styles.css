@@ -119,7 +119,7 @@ header a[title="На главную страницу"] {
 
 
 /*=====================================
-index.erb + orders.erb
+index.erb + cart.erb
 =====================================*/
 
 .flexmom-index-main {
@@ -144,7 +144,7 @@ index.erb + orders.erb
 
 
 /*=====================================
-orders.erb
+cart.erb
 =====================================*/
 
 /* #orders-form {
@@ -159,6 +159,10 @@ orders.erb
   background-color: #eee;
   font-size: 2rem;
   max-width: 99.5%;
+}
+
+.h-cart {
+  margin-top: 3rem;
 }
 
 

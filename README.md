@@ -1,9 +1,8 @@
 # PizzaShop(rubyschool)
-=
 
 Ruby, Sinatra, ActiveRecord, JS, localStorage.
 
-[Учебный проект на Ruby/Sinatra c курса](https://rubyschool.us/ "Rubyschool")
+[Учебный проект на Ruby/Sinatra c курса Rubyschool](https://rubyschool.us/)
 
 
 Дополнено/изменено:

@@ -40,6 +40,18 @@ function updateOrderCounter(id) {
     }
     $('#counter' + id).val(order);    
 }
+// (!!! Функция не работает, нужно до/переделать)
+// Для каждого счетчика между кнопками + и - для каждого товара(для layout при обновлении страницы)
+function updateOrderCounters() {
+    for (var i = 0; i < window.localStorage.length; i++){
+        var key = window.localStorage.key(i); // получаем ключ
+        var value = window.localStorage.getItem(key); // получаем значение
+
+        if(key == 'product_' + id) {
+            $('#counter' + id).val(value); // отправляем каждое значение в соотв счетчик
+        }
+    }      
+}
 
 // Функция для того чтобы обратиться к полю в которое мы хотим поместить "product_1=3,product_2=5,product_3=1, ..." чтобы потом отправить этот результат на сервер.
 function updateOrdersInput() {

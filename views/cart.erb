@@ -1,6 +1,7 @@
 <h2 class="text-center">Order list</h2>
 
 <div class="mid-container" id="cart"> <!-- id для функции canselOrder() -->
+
   <!-- таблица заказов -->
 	<div class="flexmom-index-main">
     <% sum = 0 %>
@@ -22,29 +23,33 @@
 
 
 
-  <h2 class="text-center">Подтвердите заказ</h2>
+  <h2 class="text-center h-cart">Подтвердите заказ</h2>
   <!-- Форма подтверждения заказов -->
-  <form action="/order" method="POST" id="orders-form">
-    <div>
-      <label>Ваше имя</label><br>
-      <input name="client[name]" type="text" value="<%= @c.name %>">
-    </div>
-    <div>
-      <label>Ваш телефон</label><br>
-      <input name="client[phone]" type="text" value="<%= @c.phone %>">
-    </div>
-    <div>
-      <label>Ваш адрес</label><br>
-      <input name="client[address]" type="text" value="<%= @c.address %>">
-    </div>
-    <!-- Скрытое поле с "product_1=4,product_2=7,product_3=4," -->
-    <input name="client[products]" type="hidden" value="<%= @order_code %>">
+  <div class="flexmom-index-main">
 
-    <button type="submit" class="button-1 trans">Подтвердить</button>
+    <form action="/order" method="POST" id="orders-form">
+      <div>
+        <label>Ваше имя</label><br>
+        <input name="client[name]" type="text" value="<%= @c.name %>">
+      </div>
+      <div>
+        <label>Ваш телефон</label><br>
+        <input name="client[phone]" type="text" value="<%= @c.phone %>">
+      </div>
+      <div>
+        <label>Ваш адрес</label><br>
+        <input name="client[address]" type="text" value="<%= @c.address %>">
+      </div>
+      <!-- Скрытое поле с "product_1=4,product_2=7,product_3=4," -->
+      <input name="client[products]" type="hidden" value="<%= @order_code %>">
 
-    <!-- Для очистки козины на странице подтвержден -->
-		<button onclick="canselOrder()" type="button" class="button-1 trans">Cancel</button> 
-  </form>
+      <button type="submit" class="button-1 trans">Подтвердить</button>
+
+      <!-- Для очистки козины на странице подтвержден -->
+      <button onclick="canselOrder()" type="button" class="button-1 trans">Cancel</button> 
+    </form>
+
+  </div>
 
 </div>
 
